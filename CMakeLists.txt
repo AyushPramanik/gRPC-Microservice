@@ -3,7 +3,7 @@ project(grpc-microservice)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Protobuf REQUIRED)
+find_package(Protobuf CONFIG REQUIRED)
 find_package(gRPC REQUIRED)
 find_package(utf8_range REQUIRED)
 
@@ -30,8 +30,6 @@ target_link_libraries(${GENPROTO_LIB}
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/service/service.cpp
-    src/server/server.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

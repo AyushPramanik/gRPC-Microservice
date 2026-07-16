@@ -1,6 +1,11 @@
 #include <iostream>
+#include "order_service/order.pb.h"
 
 int main() {
-    std::cout << "Hello World!" << std::endl;
+
+    order_service::v1::Order order;
+    order.set_id("1");
+
+    std::cout << order.id() << std::endl;
     return 0;
 }
