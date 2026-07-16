@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(grpc-microservice)
+project(protobuf)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -30,6 +30,8 @@ target_link_libraries(${GENPROTO_LIB}
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
+    src/service/order_service.cpp
+    src/server/server.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
