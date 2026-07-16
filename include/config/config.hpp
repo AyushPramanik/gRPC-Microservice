@@ -1,10 +1,11 @@
 #pragma once
 
+#include <cstdlib>
 #include <string>
 
 inline std::string get_env(const std::string &key, const std::string &default_value) {
-    std::string value = std::get_env(key.c_str());
-    return !value.empty() ? value : default_value;
+    const char *value = std::getenv(key.c_str());
+    return (value != nullptr && value[0] != '\0') ? std::string(value) : default_value;
 }
 
 
@@ -19,4 +20,4 @@ struct Config {
 
         return config;
     }
-}
+};
