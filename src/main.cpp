@@ -1,11 +1,17 @@
 #include <iostream>
 #include "order_service/order.pb.h"
+#include "config/config.hpp"
+
 
 int main() {
 
-    order_service::v1::Order order;
-    order.set_id("1");
+    try {
+        Config config = Config::New();
+    }
+    catch {
+        std::cerr << e.what() << '\n';
+        return 1;
+    }
 
-    std::cout << order.id() << std::endl;
     return 0;
 }
